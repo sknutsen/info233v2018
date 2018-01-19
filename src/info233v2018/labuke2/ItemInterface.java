@@ -1,7 +1,7 @@
 package info233v2018.labuke2;
 
 public interface ItemInterface {
-	String name = "";
+	String name = "" ;
 	int price = 0;
 	
 	//gets name of item

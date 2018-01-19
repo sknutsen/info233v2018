@@ -1,0 +1,7 @@
+1
+doubleCapacity
+doubles capacity of array bag
+checkCapacity
+checks if the client requests a capacity which is larger than the defined max capacity
+
+2
