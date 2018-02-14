@@ -11,6 +11,6 @@ public interface ItemInterface {
 	
 	//gets price of item
 	int getPrice();
-	//sets item price
+	//sets item price<
 	void setPrice(int p);
 }

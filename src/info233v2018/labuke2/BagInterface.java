@@ -9,5 +9,7 @@ public interface BagInterface<T> {
 	/**
 	 * removes objects from bag
 	 */
-	void remove();
+	T remove();
+
+	boolean isEmpty();
 }
