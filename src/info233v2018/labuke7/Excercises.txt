@@ -1,0 +1,38 @@
+15.3
+if(next().hasNext()) {
+    next();
+    syso(next());
+}
+
+15.4
+while(hasNext()) {
+    syso(next());
+}
+
+15.5
+while(next() != null) {
+    remove();
+}
+
+15.6
+while(hasNext()) {
+    if(next().equals("CANCEL")) {
+        remove();
+    } else
+        next();
+}
+
+15.7
+while(hasNext) {
+    T temp = next();
+    while(hasNext) {
+        if(temp.equals(next())) {
+            remove();
+        }
+    }
+}
+
+15.8
+???
+
+15.9
