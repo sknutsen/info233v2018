@@ -36,3 +36,88 @@ while(hasNext) {
 ???
 
 15.9
+int min = next();
+while(hasnext) {
+    if(next() < min) {
+        min = next();
+    }
+}
+
+15.10
+
+
+15.11
+public class SeparateIterator<T> implements Iterator<T> {
+    private ListInterface<T> list;
+    private int nextPosition;
+    private boolean wasNextCalled;
+
+    public SeparateIterator(ListInterface<T> myList) {
+        list = myList;
+        nextPosition = 0;
+        wasNextCalled = false;
+    }
+
+    @Override
+    public T next() {
+        if (nextPosition < list.getLength()) {
+            wasNextCalled = true;
+            nextPosition++;
+            return list.getEntry(nextPosition);
+        } else {
+            throw new NoSuchElementException("");
+        }
+    }
+}
+
+15.12
+a)
+int min = next();
+while(hasnext) {
+    if(next() < min) {
+        min = next();
+    }
+}
+
+b)
+int min = next();
+while(hasnext) {
+    if(next() < min) {
+        min = next();
+    }
+}
+remove();
+
+15.13
+a)
+int min = list[0];
+for(T t : list) {
+    if(t < min) {
+        min = t;
+    }
+}
+return min;
+
+b)
+int min = list[0];
+for(T t : list) {
+    if(t < min) {
+        min = t;
+    }
+}
+
+return min;
+
+15.14
+smith
+miller
+sam
+
+smith
+jason
+
+
+15.15
+
+
+15.16
