@@ -7,7 +7,7 @@ public class Geemu {
     private int range;
     private int ans;
     private int tries;
-    private boolean gameEnded = false;
+    private boolean gameEnded;
 
     public static void main(String[] args) {
         Geemu gem = new Geemu(5);

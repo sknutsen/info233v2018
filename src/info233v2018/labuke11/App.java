@@ -9,10 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.util.Random;
-
 public class App extends Application {
     private Geemu game;
+    private BorderPane borderPaneTest;
+    private TextField inputN;
+    private TextField inputT;
 
     public static void main(String[] args) {
         launch(args);
@@ -20,56 +21,70 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        newGame(10, 3);
+        //newGame(primaryStage);
+        BorderPane bp = new BorderPane();
+        borderPaneTest = new BorderPane();
+        Button okButton = new Button("Start Game");
+        inputN = new TextField("Number range");
+        inputT = new TextField("Tries");
 
-        TextField input = new TextField("Guess from 0 to " + game.getRange());
-        TextField inputN = new TextField("Number range");
-        TextField inputT = new TextField("Tries");
-        Button startButton = new Button("Guess");
-        Button newGameButton = new Button("New Game");
-
-        BorderPane borderPane = new BorderPane();
-        BorderPane borderPaneTest = new BorderPane();
-        borderPane.setTop(input);
-        borderPane.setCenter(startButton);
+        bp.setTop(borderPaneTest);
+        bp.setCenter(okButton);
         borderPaneTest.setLeft(inputN);
         borderPaneTest.setRight(inputT);
 
-        ListView<Label> labelListView = new ListView<>();
-        borderPane.setBottom(labelListView);
-
-        startButton.setOnAction(
-                (event) -> {
-                    Label label = new Label(game.guess(Integer.parseInt(input.getCharacters().toString())));
-                    labelListView.getItems().add(label);
-                    if (game.isGameEnded()) {
-                        borderPane.setCenter(newGameButton);
-                        borderPane.setTop(borderPaneTest);
-                    }
-                }
-        );
-
-        newGameButton.setOnAction(
+        okButton.setOnAction(
                 (event) -> {
                     newGame(Integer.parseInt(inputN.getCharacters().toString()),
                             Integer.parseInt(inputT.getCharacters().toString()));
-                    borderPane.setCenter(startButton);
+
+                    TextField input = new TextField("Guess from 0 to " + game.getRange());
+                    Button startButton = new Button("Guess");
+                    Button newGameButton = new Button("New Game");
+                    BorderPane borderPane = new BorderPane();
+
                     borderPane.setTop(input);
+                    borderPane.setCenter(startButton);
+
+                    ListView<Label> labelListView = new ListView<>();
+                    borderPane.setBottom(labelListView);
+
+                    startButton.setOnAction(
+                            (event1) -> {
+                                Label label = new Label(game.guess(Integer.parseInt(input.getCharacters().toString())));
+                                labelListView.getItems().add(label);
+                                if (game.isGameEnded()) {
+                                    borderPane.setCenter(newGameButton);
+                                    borderPane.setTop(borderPaneTest);
+                                }
+                            }
+                    );
+
+                    newGameButton.setOnAction(
+                            (event1) -> {
+                                newGame(Integer.parseInt(inputN.getCharacters().toString()),
+                                        Integer.parseInt(inputT.getCharacters().toString()));
+                                borderPane.setCenter(startButton);
+                                borderPane.setTop(input);
+                            }
+                    );
+
+                    Scene mainScene = new Scene(borderPane, 400,600);
+
+                    primaryStage.setTitle("Guessing Game");
+                    primaryStage.setScene(mainScene);
+                    primaryStage.show();
                 }
         );
 
-        Scene mainScene = new Scene(borderPane, 400,600);
+        Scene popupScene = new Scene(bp, 400, 200);
 
-        primaryStage.setTitle("Guessing Game");
-        primaryStage.setScene(mainScene);
+        primaryStage.setTitle("Specify range and attempts");
+        primaryStage.setScene(popupScene);
         primaryStage.show();
     }
 
-    public void newGame(int t) {
-        game = new Geemu(t);
-    }
-
-    public void newGame(int n, int t) {
+    private void newGame(int n, int t) {
         game = new Geemu(n, t);
     }
 }
