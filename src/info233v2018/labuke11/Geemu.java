@@ -29,7 +29,7 @@ public class Geemu {
     }
 
     public String guess(int guess) {
-        String result = "";
+        String result = "You dun fucked up";
 
         if (tries > 0) {
             if (guess == ans) {
