@@ -14,14 +14,14 @@ public class Geemu {
         System.out.println(gem.getAns());
     }
 
-    public Geemu(int tries) {
+    private Geemu(int tries) {
         range = 100;
         ans = rngeesus.nextInt(range);
         this.tries = tries;
         gameEnded = false;
     }
 
-    public Geemu(int n, int tries) {
+    Geemu(int n, int tries) {
         range = n;
         ans = rngeesus.nextInt(range);
         this.tries = tries;
@@ -59,7 +59,7 @@ public class Geemu {
         return result;
     }
 
-    public int getAns() {
+    private int getAns() {
         return ans;
     }
 

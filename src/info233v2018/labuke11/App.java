@@ -78,6 +78,7 @@ public class App extends Application {
         );
 
         Scene popupScene = new Scene(bp, 400, 200);
+        popupScene.getStylesheets().add("info233v2018/labuke11/Stylesheet.css");
 
         primaryStage.setTitle("Specify range and attempts");
         primaryStage.setScene(popupScene);
