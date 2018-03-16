@@ -21,7 +21,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        //newGame(primaryStage);
         BorderPane bp = new BorderPane();
         borderPaneTest = new BorderPane();
         Button okButton = new Button("Start Game");
@@ -41,12 +40,11 @@ public class App extends Application {
                     TextField input = new TextField("Guess from 0 to " + game.getRange());
                     Button startButton = new Button("Guess");
                     Button newGameButton = new Button("New Game");
+                    ListView<Label> labelListView = new ListView<>();
                     BorderPane borderPane = new BorderPane();
 
                     borderPane.setTop(input);
                     borderPane.setCenter(startButton);
-
-                    ListView<Label> labelListView = new ListView<>();
                     borderPane.setBottom(labelListView);
 
                     startButton.setOnAction(
