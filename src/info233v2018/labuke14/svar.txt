@@ -1,0 +1,14 @@
+1.
+
+
+2.
+boolean addEntry(name, phnumber) {
+    if getvalue(name) != null
+        setvalue(name, phnumber)
+        return false
+    else
+        setValue(name, phnumber)
+        return true
+}
+
+3.
