@@ -7,26 +7,6 @@ public class DBAdapter {
      * Connect to a sample database
      */
     public Connection connect() {
-        /*Connection conn = null;
-        try {
-            // db parameters
-            String url = "jdbc:sqlite:C:/Users/soknu/OneDrive/Dokumenter/GitHub/info233/info233v2018/src/info233v2018/labuke10/chinook.db";
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-
-            System.out.println("Connection to SQLite has been established.");
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }*/
         String url = "jdbc:sqlite:C:/Users/soknu/OneDrive/Dokumenter/GitHub/info233/info233v2018/src/info233v2018/labuke10/chinook.db";
         Connection conn = null;
         try {
