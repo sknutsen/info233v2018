@@ -1,0 +1,17 @@
+oppgave 6)
+    append() - O(n^2) fordi metoden kaller en for løkke i getNodeAt() gjennom add() inni en while løkke
+
+    prepend() - O(n) fordi den har en while løkke, put() påvirker ikke O-notasjon på grunn av at den er O(1)
+
+    concat() - O(n^2) fordi den har en while løkke og kaller på prepend(), som også har en while løkke, inni denne
+
+
+oppgave 12)
+    filter() - O(n) fordi den benytter seg av en for-each løkke.
+
+    map() - O(n) fordi at selv om den har to for-each løkker endrer ikke det på O-notasjonen, dersom løkkene hadde vært
+            nøstet da ville O-notasjonen vært O(n^2). Dersom vi hadde brukt add() istedenfor put() så ville O-notasjonen
+            vært O(n^2) fordi add() har en O-notasjon på O(n), men put() er O(1) så derfor blir ikke kjøretiden påvirket
+            videre.
+
+    reduce() - O(n) fordi den benytter seg av en for-each løkke.

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="800.0" maxWidth="900.0" minHeight="800.0" minWidth="900.0" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.Controller">
+   <children>
+      <TabPane prefHeight="800.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="View">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="800.0" prefHeight="800.0" prefWidth="800.0">
+                     <children>
+                        <BorderPane layoutX="180.0" layoutY="20.0" prefHeight="700.0" prefWidth="700.0">
+                           <top>
+                              <TableView fx:id="table" prefHeight="700.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                                <columns>
+                                  <TableColumn fx:id="col1" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="col2" prefWidth="180.0" text="Street Number" />
+                                    <TableColumn fx:id="col3" prefWidth="150.0" text="Street Name" />
+                                    <TableColumn fx:id="col4" prefWidth="144.0" text="Postal Code" />
+                                    <TableColumn fx:id="col5" prefWidth="150.0" text="Postal Town" />
+                                </columns>
+                              </TableView>
+                           </top>
+                        </BorderPane>
+                        <Button fx:id="addressTblBtn" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Address Table" />
+                        <Button fx:id="categoryTblBtn" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" text="Category Table" />
+                        <Button layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="Customer Table" />
+                        <Button layoutX="14.0" layoutY="124.0" mnemonicParsing="false" text="Invoice Table" />
+                        <Button layoutX="14.0" layoutY="158.0" mnemonicParsing="false" text="Invoice Items Table" />
+                        <Button layoutX="14.0" layoutY="192.0" mnemonicParsing="false" text="Product Table" />F
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Add">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutY="5.0" prefHeight="100.0" prefWidth="1000.0">
+                           <children>
+                              <Label layoutX="130.0" text="Street Number" />
+                              <Label layoutX="10.0" text="Address Id" />
+                              <Label layoutX="300.0" text="Street Name" />
+                              <Label layoutX="450.0" text="Postal Code" />
+                              <Label layoutX="600.0" text="Postal Town" />
+                              <TextField fx:id="addIdField" layoutX="5.0" layoutY="40.0" prefWidth="110.0" />
+                              <TextField fx:id="addStrNumField" layoutX="130.0" layoutY="40.0" prefWidth="160.0" />
+                              <TextField fx:id="addStrNamField" layoutX="300.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="addPosCodField" layoutX="450.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="addPosTowField" layoutX="600.0" layoutY="40.0" prefWidth="128.0" />
+                              <Button layoutX="745.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertAddress" text="Add" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Pane>
+                        <Pane layoutY="105.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="130.0" text="Category Name" />
+                              <Label layoutX="10.0" text="Category Id" />
+                              <TextField fx:id="catIdField" layoutX="5.0" layoutY="40.0" prefWidth="110.0" />
+                              <TextField fx:id="catNamField" layoutX="130.0" layoutY="40.0" prefWidth="160.0" />
+                              <Button layoutX="745.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertCategory" text="Add" />
+                           </children>
+                        </Pane>
+                        <Pane layoutY="205.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="130.0" text="Customer Name" />
+                              <Label layoutX="10.0" text="Customer Id" />
+                              <Label layoutX="300.0" text="Address Id" />
+                              <Label layoutX="450.0" text="Phone Number" />
+                              <Label layoutX="600.0" text="Billing Account" />
+                              <TextField fx:id="cusIdField" layoutX="5.0" layoutY="40.0" prefWidth="110.0" />
+                              <TextField fx:id="cusNamField" layoutX="130.0" layoutY="40.0" prefWidth="160.0" />
+                              <TextField fx:id="cusAddField" layoutX="300.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="cusPhNrField" layoutX="450.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="cusBilAccField" layoutX="600.0" layoutY="40.0" prefWidth="128.0" />
+                              <Button layoutX="745.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertCustomer" text="Add" />
+                           </children>
+                        </Pane>
+                        <Pane layoutY="305.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="130.0" text="Customer Id" />
+                              <Label layoutX="10.0" text="Invoice Id" />
+                              <Label layoutX="300.0" text="Date" />
+                              <TextField fx:id="invIdField" layoutX="5.0" layoutY="40.0" prefWidth="110.0" />
+                              <TextField fx:id="invCusIdField" layoutX="130.0" layoutY="40.0" prefWidth="160.0" />
+                              <TextField fx:id="invDateField" layoutX="300.0" layoutY="40.0" prefWidth="128.0" />
+                              <Button layoutX="745.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertInvoice" text="Add" />
+                           </children>
+                        </Pane>
+                        <Pane layoutY="405.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="130.0" text="Product Id" />
+                              <Label layoutX="10.0" text="Invoice Id" />
+                              <TextField fx:id="invItInvIdField" layoutX="5.0" layoutY="40.0" prefWidth="110.0" />
+                              <TextField fx:id="invItProdIdField" layoutX="130.0" layoutY="40.0" prefWidth="160.0" />
+                              <Button layoutX="745.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertInvoiceItems" text="Add" />
+                           </children>
+                        </Pane>
+                        <Pane layoutY="505.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="130.0" text="Product Name" />
+                              <Label layoutX="10.0" text="Product Id" />
+                              <Label layoutX="300.0" text="Description" />
+                              <Label layoutX="450.0" text="Price" />
+                              <Label layoutX="600.0" text="Category Id" />
+                              <TextField fx:id="prodIdField" layoutX="5.0" layoutY="40.0" prefWidth="110.0" />
+                              <TextField fx:id="prodNamField" layoutX="130.0" layoutY="40.0" prefWidth="160.0" />
+                              <TextField fx:id="prodDescField" layoutX="300.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="prodPriceField" layoutX="450.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="prodCatIdField" layoutX="600.0" layoutY="40.0" prefWidth="128.0" />
+                              <Button layoutX="745.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertProduct" text="Add" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="addAllBtn" layoutX="738.0" layoutY="617.0" mnemonicParsing="false" onAction="#insertAll" text="Add All" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Invoice">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="customerNameLabel1" layoutX="177.0" layoutY="14.0" text="CustomerName" />
+                        <Label fx:id="customerStreetLabel1" layoutX="177.0" layoutY="31.0" text="StreetName + StreetNumber" />
+                        <Label fx:id="customerPostalLabel1" layoutX="177.0" layoutY="48.0" text="PostalCode + PostalTown" />
+                        <Label fx:id="customerPhoneNumberLabel" layoutX="665.0" layoutY="14.0" text="PhoneNumber" />
+                        <Label fx:id="customerAccountLabel" layoutX="665.0" layoutY="31.0" text="BillingAccount" />
+                        <Label layoutX="659.0" layoutY="109.0" prefHeight="24.0" prefWidth="89.0" text="FAKTURA">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="customerIdLabel" layoutX="665.0" layoutY="136.0" text="CustomerID" />
+                        <Label fx:id="invoiceIdLabel" layoutX="665.0" layoutY="153.0" text="InvoiceID" />
+                        <Label fx:id="invoiceDateLabel" layoutX="665.0" layoutY="170.0" text="InvoiceDate" />
+                        <Label fx:id="customerNameLabel2" layoutX="177.0" layoutY="136.0" text="CustomerName" />
+                        <Label fx:id="customerStreetLabel2" layoutX="177.0" layoutY="153.0" text="StreetName + StreetNumber" />
+                        <Label fx:id="customerPostalLabel2" layoutX="177.0" layoutY="170.0" text="PostalCode + PotsalTown" />
+                        <TableView fx:id="invoiceTable" layoutX="170.0" layoutY="187.0" prefHeight="532.0" prefWidth="600.0">
+                           <columns>
+                              <TableColumn prefWidth="71.5" text="ProductID" />
+                              <TableColumn prefWidth="181.0" text="ProductDescription" />
+                              <TableColumn prefWidth="126.5" text="ProductName" />
+                              <TableColumn minWidth="0.0" prefWidth="126.5" text="ProductCategory" />
+                              <TableColumn prefWidth="93.5" text="ProductPrice" />
+                           </columns>
+                        </TableView>
+                        <SplitMenuButton layoutX="14.0" layoutY="16.0" mnemonicParsing="false" text="Select Invoice">
+                          <items>
+                            <MenuItem fx:id="selectInvoiceDropDown" mnemonicParsing="false" text="1" />
+                            <MenuItem mnemonicParsing="false" text="NYI" />
+                          </items>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </SplitMenuButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="InvoiceTest">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="customerNameLabel11" layoutX="177.0" layoutY="14.0" text="CustomerName" />
+                        <Label fx:id="customerStreetLabel11" layoutX="177.0" layoutY="31.0" text="StreetName + StreetNumber" />
+                        <Label fx:id="customerPostalLabel11" layoutX="177.0" layoutY="48.0" text="PostalCode + PostalTown" />
+                        <Label fx:id="customerPhoneNumberLabel1" layoutX="665.0" layoutY="14.0" text="PhoneNumber" textAlignment="CENTER" />
+                        <Label fx:id="customerAccountLabel1" layoutX="665.0" layoutY="31.0" text="BillingAccount" textAlignment="CENTER" />
+                        <Label layoutX="659.0" layoutY="109.0" prefHeight="24.0" prefWidth="89.0" text="FAKTURA">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="customerIdLabel1" layoutX="665.0" layoutY="136.0" text="CustomerID" textAlignment="CENTER" />
+                        <Label fx:id="invoiceIdLabel1" layoutX="665.0" layoutY="153.0" text="InvoiceID" textAlignment="CENTER" />
+                        <Label fx:id="invoiceDateLabel1" layoutX="665.0" layoutY="170.0" text="InvoiceDate" textAlignment="CENTER" />
+                        <Label fx:id="customerNameLabel21" layoutX="177.0" layoutY="136.0" text="CustomerName" />
+                        <Label fx:id="customerStreetLabel21" layoutX="177.0" layoutY="153.0" text="StreetName + StreetNumber" />
+                        <Label fx:id="customerPostalLabel21" layoutX="177.0" layoutY="170.0" text="PostalCode + PotsalTown" />
+                        <SplitMenuButton layoutX="14.0" layoutY="36.0" mnemonicParsing="false" text="SplitMenuButton">
+                           <items>
+                              <MenuItem fx:id="selectInvoiceDropDown1" mnemonicParsing="false" text="Action 1" />
+                              <MenuItem mnemonicParsing="false" text="Action 2" />
+                           </items>
+                        </SplitMenuButton>
+                        <Label layoutX="30.0" layoutY="14.0" text="Select Invoice">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="productIdListView" layoutX="177.0" layoutY="222.0" prefHeight="475.0" prefWidth="100.0" />
+                        <ListView fx:id="productDescriptionListView" layoutX="276.0" layoutY="222.0" prefHeight="475.0" prefWidth="135.0" />
+                        <ListView fx:id="productNameListView" layoutX="410.0" layoutY="222.0" prefHeight="475.0" prefWidth="125.0" />
+                        <ListView fx:id="productCategoryListView" layoutX="534.0" layoutY="222.0" prefHeight="475.0" prefWidth="125.0" />
+                        <Label layoutX="190.0" layoutY="201.0" text="Product ID" textAlignment="CENTER" />
+                        <Label layoutX="313.0" layoutY="201.0" text="Description" textAlignment="CENTER" />
+                        <ListView fx:id="productPriceListView" layoutX="658.0" layoutY="222.0" prefHeight="475.0" prefWidth="100.0" />
+                        <Label layoutX="457.0" layoutY="201.0" text="Name" textAlignment="CENTER" />
+                        <Label layoutX="573.0" layoutY="201.0" text="Category" textAlignment="CENTER" />
+                        <Label layoutX="690.0" layoutY="201.0" text="Price" textAlignment="CENTER" />
+                        <Line endX="480.0" layoutX="278.0" layoutY="218.0" startX="-100.0" />
+                        <Label fx:id="totalPriceLabel" layoutX="659.0" layoutY="697.0" text="Total: " underline="true">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Edit">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutY="5.0" prefHeight="100.0" prefWidth="1000.0">
+                           <children>
+                              <Label layoutX="179.0" text="Street Number" />
+                              <Label layoutX="18.0" text="Address Id" />
+                              <Label layoutX="389.0" text="Street Name" />
+                              <Label layoutX="521.0" text="Postal Code" />
+                              <Label layoutX="688.0" text="Postal Town" />
+                              <TextField fx:id="addStrNumField1" layoutX="179.0" layoutY="40.0" prefWidth="160.0" />
+                              <TextField fx:id="addStrNamField1" layoutX="383.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="addPosCodField1" layoutX="521.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="addPosTowField1" layoutX="664.0" layoutY="40.0" prefWidth="128.0" />
+                              <Button layoutX="825.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertAddress" text="Edit" />
+                              <ComboBox layoutX="14.0" layoutY="40.0" prefWidth="150.0" promptText="Choose ID" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Pane>
+                        <Pane layoutY="105.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="180.0" text="Category Name" />
+                              <Label layoutX="14.0" text="Category Id" />
+                              <TextField fx:id="catNamField1" layoutX="180.0" layoutY="40.0" prefWidth="160.0" />
+                              <Button layoutX="827.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertCategory" text="Edit" />
+                              <ComboBox layoutX="14.0" layoutY="40.0" prefWidth="150.0" promptText="Categories" />
+                           </children>
+                        </Pane>
+                        <Pane layoutY="205.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="182.0" text="Customer Name" />
+                              <Label layoutX="14.0" text="Customer Id" />
+                              <Label layoutX="359.0" text="Address Id" />
+                              <Label layoutX="487.0" text="Phone Number" />
+                              <Label layoutX="642.0" text="Billing Account" />
+                              <TextField fx:id="cusNamField1" layoutX="182.0" layoutY="40.0" prefWidth="160.0" />
+                              <TextField fx:id="cusAddField1" layoutX="359.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="cusPhNrField1" layoutX="497.0" layoutY="40.0" prefWidth="128.0" />
+                              <TextField fx:id="cusBilAccField1" layoutX="642.0" layoutY="40.0" prefWidth="128.0" />
+                              <Button layoutX="831.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertCustomer" text="Edit" />
+                              <ComboBox layoutX="14.0" layoutY="42.0" prefHeight="28.0" prefWidth="150.0" promptText="Customer" />
+                           </children>
+                        </Pane>
+                        <Pane layoutY="305.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="184.0" text="Customer Id" />
+                              <Label layoutX="14.0" layoutY="4.0" text="Invoice Id" />
+                              <Label layoutX="356.0" text="Date" />
+                              <TextField fx:id="invCusIdField1" layoutX="184.0" layoutY="40.0" prefWidth="160.0" />
+                              <TextField fx:id="invDateField1" layoutX="356.0" layoutY="40.0" prefWidth="128.0" />
+                              <Button layoutX="828.0" layoutY="40.0" mnemonicParsing="false" onAction="#insertInvoice" text="Edit" />
+                              <ComboBox layoutX="14.0" layoutY="40.0" prefWidth="150.0" promptText="Invoice" />
+                              <Label layoutX="639.0" layoutY="90.0" text="Category Id" />
+                           </children>
+                        </Pane>
+                        <Pane layoutY="405.0" prefHeight="100.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="-6.0" text="Product Id" />
+                              <Label layoutX="182.0" layoutY="-6.0" text="Product Name" />
+                              <TextField fx:id="prodNamField1" layoutX="182.0" layoutY="25.0" prefWidth="160.0" />
+                              <Label layoutX="362.0" layoutY="-6.0" text="Description" />
+                              <TextField fx:id="prodDescField1" layoutX="362.0" layoutY="25.0" prefWidth="128.0" />
+                              <Label layoutX="501.0" layoutY="-10.0" text="Price" />
+                              <TextField fx:id="prodPriceField1" layoutX="501.0" layoutY="25.0" prefWidth="128.0" />
+                              <TextField fx:id="prodCatIdField1" layoutX="638.0" layoutY="25.0" prefWidth="128.0" />
+                              <Button layoutX="828.0" layoutY="27.0" mnemonicParsing="false" onAction="#insertProduct" text="Edit" />
+                              <ComboBox layoutX="14.0" layoutY="25.0" prefWidth="150.0" promptText="Product" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="addAllBtn1" layoutX="728.0" layoutY="585.0" mnemonicParsing="false" onAction="#insertAll" text="Add All" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

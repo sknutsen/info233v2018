@@ -1,0 +1,42 @@
+Oblig 1 av Sondre Knutsen skn003
+
+a)
+    Jeg har deklarert begge exceptionklassene som RuntimeException fordi at dersom deque-en kaster et DequeFullException
+    vil ikke det være noe brukeren kan gjøre for å redde seg ut av situasjonen. Det samme gjelder dersom DequeEmptyException
+    blir kastet.
+
+c)
+    size:
+        O(n) -Må gå gjennom alle elementene i deque-en (OLD)
+        O(1) -aksesserer ett feldt (NEW)
+    addFirst:
+        O(1) -Trenger ikke å iterere gjennom deque. Her antar vi at ensureCapacity har en O notasjon på O(1).
+    pullFirst:
+        O(1) -Henter et element fra spesifisert index, og endrer på verdien til frontIndex.
+    peekFirst:
+        O(1) -Kun en operasjon uten å iterere.
+
+e)
+    addLast:
+        O(1) -Trenger ikke å iterere gjennom deque. Her antar vi at ensureCapacity har en O notasjon på O(1).
+    pullLast:
+        O(1) -Henter et element fra spesifisert index, og endrer på verdien til frontIndex.
+    peekLast:
+        O(1) -Kun en operasjon uten å iterere.
+
+g)
+    clear:
+        O(1) -Lager bare et nytt array, noe som ikke påvirker O notasjonen.
+    contains:
+        O(n) -Må iterere gjennom hele arrayet.
+    toArray:
+        O(1) -Arrays.copyOf() er implementert på en slik måte at den ikke itererer og dermed har en O notasjon på O(1)
+
+h)
+    De er like fordi begge metodesettene er lik i prinsippet bortsett fra at de går i motsatt retning.
+
+i)
+    average:
+        O(n) -Itererer gjennom en for løkke.
+    slidingAvg:
+        O(n) -Det er flere for løkker som vil gjøre at metoden tar lengre tid å kjøre, men dette endrer ikke på kompleksiteten.
